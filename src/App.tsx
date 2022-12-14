@@ -1,11 +1,9 @@
-import './app.scss';
+import "normalize.css";
 
 export function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <header className="App-header"></header>
     </div>
   );
 }
-
