@@ -1,4 +1,12 @@
 {
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/*.lock": true
+  },
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "breadcrumbs.enabled": true,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.codeActionsOnSave": {
