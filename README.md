@@ -1,3 +1,5 @@
+### In this project we use methodology - [FSD](https://feature-sliced.design/ru/docs/get-started/overview) (Feature-Sliced Design)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
