@@ -1,7 +1,7 @@
 import './sidebar.css';
 
 function Sidebar() {
-  return <aside id="sidebar"></aside>;
+  return <aside className="sidebar"></aside>;
 }
 
 export default Sidebar;
