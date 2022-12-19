@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: normal;
+  font-family: sans-serif;
+}
+
