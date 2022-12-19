@@ -1,5 +1,7 @@
+import { Layout } from '../app/ui/layout';
+
 const HomePage = () => {
-  return <div></div>;
+  return <Layout />;
 };
 
 export default HomePage;
