@@ -1,5 +1,5 @@
-import './main.module.css';
+import styles from './main.module.css';
 
 export function Main() {
-  return <main className="main"></main>;
+  return <main className={styles.main}></main>;
 }

@@ -1,5 +1,5 @@
-import './header.module.css';
+import styles from './header.module.css';
 
 export function Header() {
-  return <div className="header"></div>;
+  return <div className={styles.header}></div>;
 }

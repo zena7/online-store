@@ -1,5 +1,5 @@
-import './sidebar.module.css';
+import styles from './sidebar.module.css';
 
 export function Sidebar() {
-  return <aside className="sidebar"></aside>;
+  return <aside className={styles.sidebar}></aside>;
 }

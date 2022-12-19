@@ -1,6 +1,6 @@
-.footer{
-    font-family: sans-serif;
-    width: 100%;
-    background-color: coral;
-    grid-area: 3/1/4/4;
+.footer {
+  font-family: sans-serif;
+  width: 100%;
+  background-color: coral;
+  grid-area: 3/1/4/4;
 }
