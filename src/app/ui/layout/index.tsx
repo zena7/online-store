@@ -1,15 +1,18 @@
-import './layout.css';
 import { Header } from '../header';
-import { Main } from '../main';
+import { Container } from '../../../shared/ui/container';
 import { Sidebar } from '../sidebar';
+import { Main } from '../main';
 import { Footer } from '../footer';
+import './layout.css';
 
 export const Layout = () => {
   return (
-    <div className="layout">
+    <div data-layout="grid">
       <Header />
-      <Sidebar />
-      <Main />
+      <Container dataLayout="content">
+        <Sidebar />
+        <Main />
+      </Container>
       <Footer />
     </div>
   );
