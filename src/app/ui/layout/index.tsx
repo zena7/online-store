@@ -1,8 +1,8 @@
 import './layout.css';
-import { Header } from '../header/header';
-import { Main } from '../main/main';
-import { Sidebar } from '../sidebar/sidebar';
-import { Footer } from '../footer/footer';
+import { Header } from '../header';
+import { Main } from '../main';
+import { Sidebar } from '../sidebar';
+import { Footer } from '../footer';
 
 export const Layout = () => {
   return (
