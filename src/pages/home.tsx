@@ -1,7 +1,13 @@
-import Root from '../app/ui/layout';
+import { Sidebar } from '../app/ui/sidebar';
+import { Main } from '../app/ui/main';
 
 const HomePage = () => {
-  return <Root />;
+  return (
+    <>
+      <Sidebar />
+      <Main />
+    </>
+  );
 };
 
 export default HomePage;
