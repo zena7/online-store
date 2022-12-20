@@ -1,6 +1,8 @@
 .container {
   display: flex;
-  width: 96%;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 94%;
   margin-left: auto;
   margin-right: auto;
 }

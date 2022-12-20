@@ -1,7 +1,7 @@
-import { Layout } from '../app/ui/layout';
+import Root from '../app/ui/layout';
 
 const HomePage = () => {
-  return <Layout />;
+  return <Root />;
 };
 
 export default HomePage;
