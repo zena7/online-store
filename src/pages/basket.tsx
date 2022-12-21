@@ -1,8 +1,10 @@
+import { Container } from '../shared/ui/container';
+
 const BasketPage = () => {
   return (
-    <div>
+    <Container>
       <h1>Basket</h1>
-    </div>
+    </Container>
   );
 };
 
