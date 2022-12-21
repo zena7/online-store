@@ -7,7 +7,7 @@ export function Header() {
     <div className={styles.header}>
       <Container>
         <Link to="/">HOME</Link>
-        <div className={styles.header__basket_container}>
+        <div>
           <p>total</p>
           <Link to="/basket">BASKET</Link>
         </div>

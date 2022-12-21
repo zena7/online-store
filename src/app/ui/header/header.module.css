@@ -2,22 +2,7 @@
   padding-top: 3rem;
   padding-bottom: 3px;
   background-color: rgb(140, 28, 238);
-  color: white;
   font-size: 1.5rem;
-}
-
-.header a {
-  color: white;
-}
-
-.header__basket_container {
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.header__basket_container p {
-  margin: 0 10%;
 }
 
 
