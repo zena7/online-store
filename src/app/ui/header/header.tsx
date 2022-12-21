@@ -5,12 +5,12 @@ import styles from './header.module.css';
 
 export function Header() {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <Container>
         <Link to={CONFIG.HOME.LINK}>HOME</Link>
         <p>total</p>
         <Link to={CONFIG.BASKET.LINK}>BASKET</Link>
       </Container>
-    </div>
+    </header>
   );
 }
