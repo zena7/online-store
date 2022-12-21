@@ -10,8 +10,14 @@ export const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: '/basket', element: <BasketPage /> },
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: '/basket',
+        element: <BasketPage />,
+      },
     ],
   },
 ]);
