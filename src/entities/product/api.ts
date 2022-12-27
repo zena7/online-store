@@ -10,6 +10,6 @@ type FetchProductsResponse = {
 
 export function fetchProducts() {
   return api
-    .get<FetchProductsResponse>('/products/category/home-decoration')
-    .then((data) => data.products);
+    .get<FetchProductsResponse>('/products')
+    .then((response) => response.products);
 }
