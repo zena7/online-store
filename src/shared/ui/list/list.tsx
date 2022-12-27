@@ -5,9 +5,5 @@ interface ListProps {
 }
 
 export function List({ children }: ListProps) {
-  return (
-    <ul className={styles.list}>
-      <li>{children}</li>
-    </ul>
-  );
+  return <ul className={styles.list}>{children}</ul>;
 }
