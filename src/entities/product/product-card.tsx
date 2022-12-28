@@ -13,9 +13,9 @@ export function ProductCard({ product }: ProductProps) {
         alt={product.title}
         className={styles.productImg}
       />
-      <p>{product.title}</p>
+      <p className={styles.productTitle}>{product.title}</p>
       <p>{product.brand}</p>
-      <p>{product.price} $</p>
+      <p className={styles.productCost}>{product.price} $</p>
     </>
   );
 }
