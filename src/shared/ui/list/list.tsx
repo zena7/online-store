@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import styles from './list.module.css';
-
-interface ListProps {
+export interface ListProps {
   children: React.ReactNode;
   className?: string;
 }
