@@ -4,8 +4,8 @@ import { basketSlice } from './basket-slice';
 import { selectAll, selectById } from './selectors';
 import { RootState } from '../../shared/store';
 import { Container } from '../../shared/ui/container';
-import { BasketList } from './basket-list';
-import { List } from '../../shared/ui/list';
+// import { BasketList } from './basket-list';
+// import { List } from '../../shared/ui/list';
 
 const actions = basketSlice.actions;
 
@@ -28,11 +28,8 @@ export function Basket() {
   };
 
   return (
-    <Container>
-      {/* <List></List> */}
-
-      {/* const products={useSelector<RootState, (Product & { amount: number })[]>(selectAll)}[1].price; */}
-      <BasketList />
+    <Container>fakl
+      {/* <BasketList /> */}
 
       {/* <MockComp value={useSelector<RootState, (Product & { amount: number })[]>(selectAll)}></MockComp>
             <MockComp value={useSelector(selectById(id))}></MockComp>
