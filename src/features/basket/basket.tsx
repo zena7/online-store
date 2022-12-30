@@ -4,8 +4,6 @@ import { basketSlice } from './basket-slice';
 import { selectAll, selectById } from './selectors';
 import { RootState } from '../../shared/store';
 import { Container } from '../../shared/ui/container';
-// import { BasketList } from './basket-list';
-// import { List } from '../../shared/ui/list';
 
 const actions = basketSlice.actions;
 
@@ -18,7 +16,7 @@ export function Basket() {
     dispatch(actions.dropProduct(id));
   };
   const removeAll = (): void => {
-    // dispatch(actions.removeAll);
+    dispatch(actions.reset);
   };
   const increaseCount = (id: number): void => {
     dispatch(actions.increaseAmount(id));
@@ -27,14 +25,5 @@ export function Basket() {
     dispatch(actions.decreaseAmount(id));
   };
 
-  return (
-    <Container>fakl
-      {/* <BasketList /> */}
-
-      {/* <MockComp value={useSelector<RootState, (Product & { amount: number })[]>(selectAll)}></MockComp>
-            <MockComp value={useSelector(selectById(id))}></MockComp>
-            <MockComp value={useSelector<RootState, ProductBasket[]>(selectAll).reduce((acc, cv) => acc + cv.price, 0)}></MockComp>
-            <MockComp value={useSelector<RootState, ProductBasket[]>(selectAll).reduce((acc, cv) => acc + cv.amount, 0)}></MockComp> */}
-    </Container>
-  );
+  return <></>;
 }

@@ -28,8 +28,8 @@ export const basketSlice = createSlice({
         amount: state[action.payload].amount--,
       };
     },
-    // removeAll: () => {
-    //   initialState
-    // }
+    reset: (state, action) => {
+      state = initialState;
+    },
   },
 });
