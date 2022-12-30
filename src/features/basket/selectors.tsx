@@ -1,5 +1,5 @@
 import { RootState } from '../../shared/store';
-import { Product } from './mock-product-type';
+import { Product } from '../../entities/product/types';
 
 const selectAll = (state: RootState): (Product & { amount: number })[] =>
   Object.values(state.basket);

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from './mock-product-type';
+import { Product } from '../../entities/product/types';
 
 const initialState: Record<string, Product & { amount: number }> = {};
 
