@@ -1,9 +1,14 @@
+// import { ReactReduxContextInstance } from 'react-redux/es/components/Context';
 import styles from './main.module.css';
 
-export function Main() {
+interface NodeList {
+  children: React.ReactNode;
+}
+
+export function Main({ children }: NodeList) {
   return (
     <main data-layout="main" className={styles.main}>
-      <h1>Hello from main</h1>
+      {children}
     </main>
   );
 }
