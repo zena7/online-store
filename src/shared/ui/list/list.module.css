@@ -1,3 +1,16 @@
 .list {
+<<<<<<< HEAD
   list-style: none;
 }
+=======
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    column-gap: 5%;
+    list-style: none;
+    width: 100%;
+  }
+  
+  
+  
+  
+>>>>>>> refactor: to actualize main
