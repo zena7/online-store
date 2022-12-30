@@ -18,7 +18,7 @@ export function Basket() {
     dispatch(actions.dropProduct(id));
   };
   const removeAll = (): void => {
-    dispatch(actions.removeAll);
+    // dispatch(actions.removeAll);
   };
   const increaseCount = (id: number): void => {
     dispatch(actions.increaseAmount(id));
