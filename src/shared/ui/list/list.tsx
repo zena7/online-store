@@ -1,13 +1,12 @@
 import clsx from 'clsx';
 import styles from './list.module.css';
 
-export interface ListProps {
-  children: React.ReactNode;
-  className?: string;
-}
+export interface ListProps extends React.HTMLAttributes<HTMLUListElement> {}
 
-export function List({ children, className }: ListProps) {
+export function List({ children, className, ...props }: ListProps) {
   return (
-    <ul className={clsx(styles.list, className && className)}>{children}</ul>
+    <ul {...props} className={clsx(styles.list, className && className)}>
+      {children}
+    </ul>
   );
 }
