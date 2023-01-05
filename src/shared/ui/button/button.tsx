@@ -1,8 +1,12 @@
-interface ButtonProps {
-  onClick: () => void;
-  children?: React.ReactNode;
-}
+import styles from './styles.module.css';
 
-export const Button = ({ onClick, children }: ButtonProps) => {
-  return <button onClick={onClick}>{children}</button>;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+
+export const Button = ({ children, ...props }: ButtonProps) => {
+  return (
+    <button className={styles.btn} {...props}>
+      {children}
+    </button>
+  );
 };
