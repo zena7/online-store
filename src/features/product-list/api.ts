@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Product } from '../../entities/product/types';
-import { API_BASE_URL } from '../../shared/config';
+import { Product } from '@/entities/product/types';
+import { API_BASE_URL } from '@/shared/config';
 
 type FetchProductsResponse = {
   products: Product[];

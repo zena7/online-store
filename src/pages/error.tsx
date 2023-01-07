@@ -1,5 +1,5 @@
 import { useRouteError } from 'react-router-dom';
-import { Container } from '../shared/ui/container';
+import { Container } from '@/shared/ui/container';
 
 function ErrorPage() {
   const error = useRouteError() as any;
