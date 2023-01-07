@@ -1,27 +1,28 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10%;
-    padding-bottom: 1%;
-    height: 42vh;
-    border: 2px solid rgba(0, 0, 0, 0.13);
-    border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10%;
+  padding-bottom: 1%;
+  height: 42vh;
+  border: 2px solid rgba(0, 0, 0, 0.13);
+  border-radius: 2%;
 }
 
 .img {
-    width: 72%;
-    height: 64%;
-    object-fit: cover;
-    margin-bottom: 5%;
+  width: 72%;
+  height: 64%;
+  object-fit: cover;
+  margin-bottom: 5%;
 }
 
 .description {
   text-align: center;
 }
 
-.title, .price{
+.title,
+.price {
   color: #000;
   font-size: 1.1rem;
   text-transform: none;
@@ -36,7 +37,3 @@ p {
 .price {
   line-height: 2.5;
 }
-
-
-
-

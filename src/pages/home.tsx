@@ -1,6 +1,6 @@
 import { Sidebar } from '@/app/ui/sidebar';
 import { Main } from '@/app/ui/main';
-import { ProductList } from '@/features/product-list/product-list/product-list';
+import { ProductList } from '@/features/product-list';
 
 const HomePage = () => {
   return (
