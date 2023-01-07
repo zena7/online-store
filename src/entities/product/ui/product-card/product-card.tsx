@@ -18,13 +18,13 @@ export function ProductCard({
   onAddClick,
   onDropClick,
 }: ProductCardProps) {
+  const computedTitle = title.length > 20 ? title.slice(0, 20) : title;
+
   return (
     <div className={styles.card}>
       <img src={images[0]} alt={title} className={styles.img} />
       <div className={styles.description}>
-        <p className={styles.title}>
-          {title.length > 20 ? `${title.slice(0, 20)}` : title}
-        </p>
+        <p className={styles.title}>{computedTitle}</p>
         <p>{brand}</p>
         <p className={styles.price}>{price} $</p>
       </div>

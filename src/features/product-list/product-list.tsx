@@ -18,6 +18,9 @@ export function ProductList() {
 
   const dispatch = useDispatch();
 
+  const handleAddClick = basketSlice.actions.addProduct;
+  const handleDropClick = basketSlice.actions.dropProduct;
+
   return (
     <List className={styles.list}>
       {products.map((product) => (
@@ -28,10 +31,10 @@ export function ProductList() {
             brand={product.brand}
             price={product.price}
             onAddClick={() => {
-              dispatch(basketSlice.actions.addProduct(product));
+              dispatch(handleAddClick(product));
             }}
             onDropClick={() => {
-              dispatch(basketSlice.actions.dropProduct(product.id));
+              dispatch(handleDropClick(product.id));
             }}
           />
         </li>
