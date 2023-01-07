@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Product } from '../../entities/product/types';
+import { API_BASE_URL } from '../../shared/config';
 
 type FetchProductsResponse = {
   products: Product[];
@@ -10,14 +11,13 @@ type FetchProductsResponse = {
 
 export const productListApi = createApi({
   reducerPath: 'productListApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: API_BASE_URL,
+  }),
   endpoints: (builder) => ({
-    getProducts: builder.query<FetchProductsResponse, string>({
-      query: (id) => ({
+    getProducts: builder.query<FetchProductsResponse, void>({
+      query: () => ({
         url: '/products',
-        params: {
-          q: id,
-        },
       }),
     }),
   }),
