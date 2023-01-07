@@ -18,8 +18,12 @@ export function ProductList() {
 
   const dispatch = useDispatch();
 
-  const handleAddClick = basketSlice.actions.addProduct;
-  const handleDropClick = basketSlice.actions.dropProduct;
+  const handleAddClick = (product: Product) => () => {
+    dispatch(basketSlice.actions.addProduct(product));
+  };
+  const handleDropClick = (id: number) => () => {
+    dispatch(basketSlice.actions.dropProduct(id));
+  };
 
   return (
     <List className={styles.list}>
@@ -30,12 +34,8 @@ export function ProductList() {
             title={product.title}
             brand={product.brand}
             price={product.price}
-            onAddClick={() => {
-              dispatch(handleAddClick(product));
-            }}
-            onDropClick={() => {
-              dispatch(handleDropClick(product.id));
-            }}
+            onAddClick={handleAddClick(product)}
+            onDropClick={handleDropClick(product.id)}
           />
         </li>
       ))}
