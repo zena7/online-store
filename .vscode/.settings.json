@@ -10,7 +10,7 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+    "source.fixAll.eslint": true
   },
   "eslint.validate": ["javascript"],
   "editor.detectIndentation": false,
@@ -21,6 +21,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" 
+  },
+  "[css][scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode" 
   },
   "files.autoSave": "onFocusChange"
