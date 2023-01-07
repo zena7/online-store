@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { basketSlice } from '@/features/basket/basket-slice';
-import { productListApi } from '@/features/product-list/api';
+import { productListApi } from '@/features/product-list/service';
 
 export const store = configureStore({
   reducer: {

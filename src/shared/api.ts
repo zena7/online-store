@@ -1,29 +1,10 @@
-const API_URL = 'https://dummyjson.com';
+import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 
-const api = {
-  get: <T = any>(url: string, options?: RequestInit): Promise<T> =>
-    fetch(`${API_URL}${url}`, {
-      ...options,
-      method: 'GET',
-    }).then((response) => response.json()),
+const baseQuery = fetchBaseQuery({
+  baseUrl: 'https://dummyjson.com',
+});
 
-  post: <T = void>(url: string, options: RequestInit): Promise<T> =>
-    fetch(`${API_URL}${url}`, {
-      ...options,
-      method: 'POST',
-    }).then((response) => response.json()),
-
-  delete: <T = void>(url: string, options: RequestInit): Promise<T> =>
-    fetch(`${API_URL}${url}`, {
-      ...options,
-      method: 'DELETE',
-    }).then((response) => response.json()),
-
-  put: <T = void>(url: string, options: RequestInit): Promise<T> =>
-    fetch(`${API_URL}${url}`, {
-      ...options,
-      method: 'PUT',
-    }).then((response) => response.json()),
-};
-
-export default api;
+export const api = createApi({
+  baseQuery: retry(baseQuery, { maxRetries: 6 }),
+  endpoints: () => ({}),
+});
