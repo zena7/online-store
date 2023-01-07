@@ -1,5 +1,5 @@
-import { List } from '../../shared/ui/list';
-import { ProductCard } from '../../entities/product/ui/product-card/product-card';
+import { List } from '@/shared/ui/list';
+import { ProductCard } from '@/entities/product/ui/product-card/product-card';
 import { useGetProductsQuery } from './api';
 import styles from './styles.module.css';
 
