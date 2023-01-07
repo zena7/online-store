@@ -1,10 +1,10 @@
 import { List } from '@/shared/ui/list';
 import { ProductCard } from '@/entities/product/ui/product-card/product-card';
-import { useGetProductsQuery } from './api';
+import { useFetchProductsQuery } from '../service';
 import styles from './styles.module.css';
 
 export function ProductList() {
-  const { data: { products } = {} } = useGetProductsQuery();
+  const { data: { products } = {} } = useFetchProductsQuery();
 
   return (
     <List className={styles.list}>
