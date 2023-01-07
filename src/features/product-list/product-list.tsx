@@ -1,22 +1,14 @@
-import { useState, useEffect } from 'react';
 import { List } from '../../shared/ui/list';
-import { fetchProducts } from '../../entities/product';
-import { Product } from '../../entities/product/types';
 import { ProductCard } from '../../entities/product/ui/product-card/product-card';
+import { useGetProductsQuery } from './product-listApi';
 import styles from './product-list.module.css';
 
 export function ProductList() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    fetchProducts().then((data) => {
-      setProducts(data);
-    });
-  }, []);
+  const { data: { products } = {} } = useGetProductsQuery('/');
 
   return (
     <List className={styles.list}>
-      {products.map((product) => (
+      {products?.map((product: any) => (
         <li className={styles.item} key={product.id}>
           <ProductCard
             images={product.images}
