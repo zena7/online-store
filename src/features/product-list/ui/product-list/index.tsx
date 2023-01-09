@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { List } from '@/shared/ui/list';
+import { Button } from '@/shared/ui/button';
 import { Product } from '@/entities/product/types';
 import { ProductCard } from '@/features/product-list/ui/product-card';
 import { useFetchProductsQuery } from '../../service';
@@ -45,12 +46,12 @@ export function ProductList() {
           </li>
         ))}
       </List>
-      <button onClick={handlePrevClick} disabled={skip === 0}>
+      <Button onClick={handlePrevClick} disabled={skip === 0}>
         prev
-      </button>
-      <button onClick={handleNextClick} disabled={limit + skip === total}>
+      </Button>
+      <Button onClick={handleNextClick} disabled={limit + skip === total}>
         next
-      </button>
+      </Button>
     </>
   );
 }
