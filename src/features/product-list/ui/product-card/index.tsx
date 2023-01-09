@@ -1,6 +1,6 @@
 import { Button } from '@/shared/ui/button';
 import { Product } from '@/entities/product/types';
-import styles from './product-card.module.css';
+import styles from './styles.module.css';
 
 type ProductCardProps = Pick<
   Product,

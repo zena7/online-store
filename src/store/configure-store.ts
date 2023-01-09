@@ -1,7 +1,6 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { basketSlice } from '@/features/basket/basket-slice';
-import { productListApi } from '@/features/product-list/service';
-import { persistReducer, persistStore } from 'redux-persist';
+import { configureStore } from '@reduxjs/toolkit';
+import { productListApi } from '@/features/product-list';
+import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {
   FLUSH,
@@ -11,19 +10,13 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
-const rootReducer = combineReducers({
-  basket: basketSlice.reducer,
-  [productListApi.reducerPath]: productListApi.reducer,
-});
+import { rootReducer } from './root-reducer';
 
 const persistConfig = {
   key: 'root',
   storage: storage,
   whitelist: ['basket'],
 };
-
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistReducer(persistConfig, rootReducer),
@@ -34,8 +27,6 @@ export const store = configureStore({
       },
     }).concat(productListApi.middleware),
 });
-
-export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
