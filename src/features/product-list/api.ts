@@ -8,11 +8,13 @@ type FetchProductsResponse = {
   total: number;
 };
 
+type PageNumber = number;
+
 export const productListApi = api.injectEndpoints({
   endpoints: (build) => ({
-    fetchProducts: build.query<FetchProductsResponse, void>({
-      query: () => ({
-        url: '/products',
+    fetchProducts: build.query<FetchProductsResponse, PageNumber>({
+      query: (page = 0) => ({
+        url: `/products?&limit=48${page > 0 ? `&skip=${page * 48}` : ''}`,
       }),
     }),
   }),
