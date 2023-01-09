@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { List } from '@/shared/ui/list';
 import { Product } from '@/entities/product/types';
 import { ProductCard } from '@/features/product-list/ui/product-card';
-import { useFetchProductsQuery } from '../../api';
+import { useFetchProductsQuery } from '../../service';
 import styles from './styles.module.css';
 import { useDispatch } from 'react-redux';
 import { basketSlice } from '@/features/basket/store';

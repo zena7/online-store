@@ -10,7 +10,7 @@ type FetchProductsResponse = {
 
 type PageNumber = number;
 
-export const productListApi = api.injectEndpoints({
+export const productListService = api.injectEndpoints({
   endpoints: (build) => ({
     fetchProducts: build.query<FetchProductsResponse, PageNumber>({
       query: (page = 0) => ({
@@ -20,4 +20,4 @@ export const productListApi = api.injectEndpoints({
   }),
 });
 
-export const { useFetchProductsQuery } = productListApi;
+export const { useFetchProductsQuery } = productListService;
