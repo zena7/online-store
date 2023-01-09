@@ -10,10 +10,8 @@ type FetchProductsResponse = {
 
 export const productListApi = api.injectEndpoints({
   endpoints: (build) => ({
-    fetchProducts: build.query<FetchProductsResponse, void>({
-      query: () => ({
-        url: '/products',
-      }),
+    fetchProducts: build.query<FetchProductsResponse, number | void>({
+      query: (page = 1, limit = 2) => `/products?limit=${limit}&page=${page}`,
     }),
   }),
 });

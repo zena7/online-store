@@ -6,3 +6,22 @@
 .item {
   padding: 8%;
 }
+
+.pagination {
+  margin: 4% auto;
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: space-around;
+}
+
+.btnPagination {
+  font-size: 1.6rem;
+  padding: 4% 3%;
+  border-radius: 10%;
+  border: 1px solid gainsboro;
+}
+
+.btnPagination:hover {
+  border: 1px solid rgb(71, 70, 70);
+}
