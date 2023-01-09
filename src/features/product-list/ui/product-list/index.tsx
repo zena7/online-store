@@ -12,7 +12,7 @@ export function ProductList() {
   const [page, setPage] = useState(0);
   const dispatch = useDispatch();
   const { data: { limit = 0, skip = 0, total, products = [] } = {} } =
-    useFetchProductsQuery(page);
+    useFetchProductsQuery({ page });
 
   const handlePrevClick = () => {
     setPage((prevState) => prevState - 1);

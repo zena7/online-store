@@ -8,16 +8,16 @@ type FetchProductsResponse = {
   total: number;
 };
 
-type PageNumber = number;
+type QueryArgs = { page?: number; limit?: number };
 
 export const productListService = api.injectEndpoints({
   endpoints: (build) => ({
-    fetchProducts: build.query<FetchProductsResponse, PageNumber>({
-      query: (page = 0) => {
-        const computedSkipQuery = page > 0 ? `&skip=${page * 48}` : '';
+    fetchProducts: build.query<FetchProductsResponse, QueryArgs>({
+      query: ({ page = 0, limit = 48 }) => {
+        const computedSkipQuery = page > 0 ? `&skip=${page * limit}` : '';
 
         return {
-          url: `/products?&limit=48${computedSkipQuery}`,
+          url: `/products?&limit=${limit}${computedSkipQuery}`,
         };
       },
     }),
