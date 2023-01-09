@@ -28,7 +28,7 @@ export const basketSlice = createSlice({
         amount: state[action.payload].amount--,
       };
     },
-    resetBasket: (state, action) => {
+    reset: (state) => {
       state = initialState;
     },
   },
