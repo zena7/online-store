@@ -10,12 +10,3 @@
   display: flex;
   flex: 1;
 }
-
-[data-layout='sidebar'] {
-  width: 23%;
-  margin-right: 1rem;
-}
-
-[data-layout='main'] {
-  width: 75%;
-}

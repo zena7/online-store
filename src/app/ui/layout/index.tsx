@@ -4,7 +4,7 @@ import { Container } from '@/shared/ui/container';
 import { Footer } from '../footer';
 import './layout.css';
 
-const Root = () => {
+const Layout = () => {
   return (
     <div data-layout="grid">
       <Header />
@@ -16,4 +16,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default Layout;
