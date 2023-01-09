@@ -1,5 +1,5 @@
-import { Button } from '../../../../shared/ui/button';
-import { Product } from '../../types';
+import { Button } from '@/shared/ui/button';
+import { Product } from '@/entities/product/types';
 import styles from './product-card.module.css';
 
 type ProductCardProps = Pick<
