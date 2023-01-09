@@ -14,6 +14,9 @@ export function ProductList() {
   const { data: { limit = 0, skip = 0, total, products = [] } = {} } =
     useFetchProductsQuery({ page });
 
+  const isFirstPage = skip === 0;
+  const isLastPage = limit + skip === total;
+
   const handlePrevClick = () => {
     setPage((prevState) => prevState - 1);
   };
@@ -46,10 +49,10 @@ export function ProductList() {
           </li>
         ))}
       </List>
-      <Button onClick={handlePrevClick} disabled={skip === 0}>
+      <Button onClick={handlePrevClick} disabled={isFirstPage}>
         prev
       </Button>
-      <Button onClick={handleNextClick} disabled={limit + skip === total}>
+      <Button onClick={handleNextClick} disabled={isLastPage}>
         next
       </Button>
     </>
