@@ -3,7 +3,7 @@ import { List } from '@/shared/ui/list';
 import { Button } from '@/shared/ui/button';
 import { Product } from '@/entities/product/types';
 import { ProductCard } from '@/features/product-list/ui/product-card';
-import { useFetchProductsQuery } from '../../service';
+import { useFetchProductsQuery } from '@/features/product-list/service';
 import styles from './styles.module.css';
 import { useDispatch } from 'react-redux';
 import { basketSlice } from '@/features/basket/store';
