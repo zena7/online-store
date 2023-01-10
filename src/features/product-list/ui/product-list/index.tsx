@@ -11,11 +11,22 @@ import { basketSlice } from '@/features/basket/store';
 export function ProductList() {
   const [page, setPage] = useState(0);
   const dispatch = useDispatch();
-  const { data: { limit = 0, skip = 0, total, products = [] } = {} } =
-    useFetchProductsQuery({ page });
+  const {
+    data: { limit = 0, skip = 0, total, products = [] } = {},
+    isLoading,
+    isFetching,
+  } = useFetchProductsQuery({ page });
 
   const isFirstPage = skip === 0;
   const isLastPage = limit + skip === total;
+
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
+
+  if (products.length === 0) {
+    return <div>No products </div>;
+  }
 
   const handlePrevClick = () => {
     setPage((prevState) => prevState - 1);
@@ -49,12 +60,24 @@ export function ProductList() {
           </li>
         ))}
       </List>
-      <Button onClick={handlePrevClick} disabled={isFirstPage}>
-        prev
-      </Button>
-      <Button onClick={handleNextClick} disabled={isLastPage}>
-        next
-      </Button>
+      <div className={styles.containerPagination}>
+        <Button
+          onClick={handlePrevClick}
+          isLoading={isFetching}
+          disabled={isFirstPage}
+          className={styles.btnPagination}
+        >
+          Prev
+        </Button>
+        <Button
+          onClick={handleNextClick}
+          isLoading={isFetching}
+          disabled={isLastPage}
+          className={styles.btnPagination}
+        >
+          Next
+        </Button>
+      </div>
     </>
   );
 }
