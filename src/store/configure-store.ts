@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { productListApi } from '@/features/product-list';
+import { productListService } from '@/features/product-list';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {
@@ -25,7 +25,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(productListApi.middleware),
+    }).concat(productListService.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
