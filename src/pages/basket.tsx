@@ -1,11 +1,7 @@
-import { Container } from '@/shared/ui/container';
+import { BasketList } from '@/features/basket/basket-list/basket-list/ui';
 
 const BasketPage = () => {
-  return (
-    <Container>
-      <h1>Basket</h1>
-    </Container>
-  );
+  return <BasketList />;
 };
 
 export default BasketPage;
