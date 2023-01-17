@@ -18,7 +18,6 @@ export const productListService = api.injectEndpoints({
 
         return {
           url: `/products?&limit=${limit}${computedSkipQuery}`,
-          // url: `/products?&limit=${limit}`,
         };
       },
     }),
