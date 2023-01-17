@@ -1,27 +1,31 @@
 .list {
+  margin-top: 0.6%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .item {
-  padding: 8%;
+  padding: 1% 4%;
 }
 
-.containerPagination {
-  margin: 4% auto;
-  width: 20%;
+/*
+.containerSort {
+  padding-top: 2%;
   display: flex;
-  justify-content: space-between;
-  align-items: space-around;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
 }
 
-.btnPagination {
-  font-size: 1.6rem;
-  padding: 4% 3%;
-  border-radius: 10%;
-  border: 1px solid gainsboro;
-}
-
-.btnPagination:hover {
-  border: 1px solid rgb(71, 70, 70);
-}
+.containerSort form {
+  width: 24%;
+  font-size: 1.2rem;
+  padding: 1%;
+} */
+/* .selectForm {
+  width: 100%;
+  padding: 2.4%;
+  cursor: pointer;
+  border: 2px solid #f2f2f2;
+  border-radius: 2%;
+} */
