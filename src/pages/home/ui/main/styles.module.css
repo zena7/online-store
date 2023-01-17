@@ -1,3 +1,8 @@
 .main {
   width: 75%;
 }
+
+.containerPagination {
+  margin: 4% auto;
+  width: 20%;
+}
