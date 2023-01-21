@@ -1,18 +1,17 @@
-// import { Product } from '@/entities/product/types';
 import { ProductList } from '@/features/product-list';
 import { Pagination } from '@/shared/ui/pagination';
-import { SortingForm } from '@/shared/ui/select-form';
+import { SortingForm } from '@/shared/ui/select-form/ui';
 import { useState } from 'react';
 import { RootState } from '@/store/configure-store';
 import { useSelector } from 'react-redux';
 
 import styles from './styles.module.css';
 
+const TOTAL = 100;
 export function Main() {
   const [page, setPage] = useState(0);
   const limit: number = useSelector((state: RootState) => state.sorting.limit);
 
-  const total = 100;
   const skip = page * limit;
 
   const handleClickPrev = () => {
@@ -21,7 +20,7 @@ export function Main() {
   };
   const handleClickNext = () => {
     setPage((prevState) => prevState + 1);
-    window.scroll(0, 0);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -31,7 +30,7 @@ export function Main() {
       <Pagination
         limit={limit}
         skip={skip}
-        total={total}
+        total={TOTAL}
         handleClickPrev={handleClickPrev}
         handleClickNext={handleClickNext}
         className={styles.containerPagination}
