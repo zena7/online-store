@@ -33,27 +33,15 @@ export function ProductCard({
         </div>
       </div>
       <div className={styles.containerBtns}>
-        {!added ? (
-          <Button
-            onClick={() => {
-              onAddClick();
-              setAdded(true);
-            }}
-            className={styles.btn}
-          >
-            Add
-          </Button>
-        ) : (
-          <Button
-            onClick={() => {
-              onDropClick();
-              setAdded(false);
-            }}
-            className={styles.btn}
-          >
-            Drop
-          </Button>
-        )}
+        <Button
+          className={styles.btn}
+          onClick={() => {
+            added ? onDropClick() : onAddClick();
+            setAdded(!added);
+          }}
+        >
+          {added ? 'Drop' : 'Add'}
+        </Button>
       </div>
     </div>
   );
