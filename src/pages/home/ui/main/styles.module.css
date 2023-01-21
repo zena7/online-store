@@ -1,3 +1,9 @@
 .main {
   width: 75%;
+  scroll-behavior: smooth;
+}
+
+.containerPagination {
+  margin: 4% auto;
+  width: 20%;
 }
