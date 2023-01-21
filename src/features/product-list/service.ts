@@ -13,11 +13,9 @@ type QueryArgs = { page?: number; limit?: number };
 export const productListService = api.injectEndpoints({
   endpoints: (build) => ({
     fetchProducts: build.query<FetchProductsResponse, QueryArgs>({
-      query: ({ page = 0, limit = 48 }) => {
-        const computedSkipQuery = page > 0 ? `&skip=${page * limit}` : '';
-
+      query: ({ limit = 100 }) => {
         return {
-          url: `/products?&limit=${limit}${computedSkipQuery}`,
+          url: `/products?&limit=${limit}`,
         };
       },
     }),
