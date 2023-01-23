@@ -1,0 +1,92 @@
+/* .containerViewOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.containerSort {
+  position: relative;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 100%;
+}
+
+.containerSort form {
+  position: relative;
+  font-size: 1.2rem;
+  padding: 1%;
+}
+
+.formSelect {
+  width: 30%;
+}
+
+.selectForm {
+  width: 100%;
+  padding: 3.4%;
+  cursor: pointer;
+  border: 2px solid #f2f2f2;
+  border-radius: 2%;
+}
+
+.icon {
+  width: 4.5%;
+  padding: 0.4%;
+  padding-bottom: 0.2%;
+  margin-left: 2%;
+  border-radius: 5%;
+  border: none;
+  background-color: white;
+}
+
+.icon img {
+  width: 100%;
+}
+
+.icon:hover {
+  background-color: #f2f2f2;
+}
+
+.icon:focus {
+  background-color: #f2f2f2;
+}
+
+.iconSix {
+  width: 4.5%;
+  padding: 0.7%;
+  margin-left: 0.1%;
+}
+
+.searchForm {
+  display: flex;
+  width: 48%;
+  height: 8.6vh;
+  margin-right: 5%;
+}
+
+.searchForm input {
+  padding-left: 16%;
+}
+
+.iconSearch {
+  position: absolute;
+  width: 8.8%;
+  padding: 0.4%;
+  top: 26%;
+  left: 4%;
+  opacity: 0.3;
+}
+
+.iconSearchClose {
+  position: absolute;
+  width: 8%;
+  opacity: 0.3;
+  top: 25%;
+  right: 4%;
+  cursor: pointer;
+}
+
+.iconSearchClose:hover {
+  opacity: 0.56;
+}
