@@ -9,7 +9,7 @@ import { useFetchProductsQuery } from '@/features/product-list/service';
 import { basketSlice } from '@/features/basket/store';
 import { RootState } from '@/store/configure-store';
 import { MainContext } from '@/pages/home/ui/main';
-// import { setQueryProperties } from '@/features/select-form/store';
+import { setQueryProperties } from '@/features/select-form/store';
 import styles from './styles.module.css';
 
 type ProductListProps = {
@@ -26,8 +26,8 @@ export function ProductList({
   page,
 }: ProductListProps) {
   const { total } = useContext(MainContext);
-  // const navigate = useNavigate();
-  // const isMounted = useRef(false);
+  const navigate = useNavigate();
+  const isMounted = useRef(false);
   const dispatch = useDispatch();
   const { data: { products = [] } = {}, isLoading } = useFetchProductsQuery({});
   const sort = useSelector((state: RootState) => state.sorting.sort);
@@ -44,28 +44,28 @@ export function ProductList({
     dispatch(basketSlice.actions.dropProduct(id));
   };
 
-  // useEffect(() => {
-  //   if (isMounted.current) {
-  //     const queryString = qs.stringify(
-  //       {
-  //         sortBy: sort.sortProperty,
-  //         searchValue: searchingValue,
-  //         page: page,
-  //       },
-  //       { addQueryPrefix: true },
-  //     );
-  //     navigate(queryString);
-  //   }
+  useEffect(() => {
+    if (isMounted.current) {
+      const queryString = qs.stringify(
+        {
+          sortBy: sort.sortProperty,
+          searchValue: searchingValue,
+          page: page,
+        },
+        { addQueryPrefix: true },
+      );
+      navigate(queryString);
+    }
 
-  //   isMounted.current = true;
-  // }, [sort, searchingValue, page]);
+    isMounted.current = true;
+  }, [sort, searchingValue, page]);
 
-  // useEffect(() => {
-  //   if (window.location.search) {
-  //     const param = qs.parse(window.location.search.slice(1));
-  //     dispatch(setQueryProperties({ ...param }));
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (window.location.search) {
+      const param = qs.parse(window.location.search.slice(1));
+      dispatch(setQueryProperties({ ...param }));
+    }
+  }, []);
 
   const setLimit = (array: Product[]) => {
     if (skip + limit < total) {
