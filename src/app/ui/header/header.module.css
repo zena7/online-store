@@ -1,8 +1,59 @@
 .header {
-  padding-top: 3rem;
-  padding-bottom: 3px;
-  background-color: rgb(140, 28, 238);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
   font-size: 1.5rem;
 }
 
+.linkStoreLogo {
+  width: 26%;
+}
+.storeLogo {
+  width: 100%;
+}
 
+.storeLogo:hover {
+  opacity: 0.8;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  padding-top: 2%;
+  width: 28%;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding-top: 1.5%;
+  /* padding-right: 4%; */
+}
+
+.counter p {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.linkBasket {
+  padding-top: 2%;
+  width: 14%;
+}
+
+.linkBasket:visited {
+  color: #000;
+}
+.iconBasket {
+  opacity: 0.4;
+}
+
+.iconBasket:hover {
+  opacity: 1;
+}
+
+.iconBasket:visited {
+  color: #000;
+}
