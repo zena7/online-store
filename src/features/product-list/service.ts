@@ -9,6 +9,7 @@ type FetchProductsResponse = {
 };
 
 type QueryArgs = { page?: number; limit?: number };
+type ProductId = number;
 
 export const productListService = api.injectEndpoints({
   endpoints: (build) => ({
@@ -19,7 +20,15 @@ export const productListService = api.injectEndpoints({
         };
       },
     }),
+    fetchSingleProduct: build.query<Product[], ProductId>({
+      query: (id) => {
+        return {
+          url: `https://dummyjson.com/products/${id}`,
+        };
+      },
+    }),
   }),
 });
 
-export const { useFetchProductsQuery } = productListService;
+export const { useFetchProductsQuery, useFetchSingleProductQuery } =
+  productListService;
