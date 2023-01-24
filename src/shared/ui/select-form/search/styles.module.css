@@ -1,0 +1,48 @@
+.selectForm {
+  width: 100%;
+  padding: 3.4%;
+  cursor: pointer;
+  border: 2px solid #f2f2f2;
+  border-radius: 2%;
+}
+
+.searchForm {
+  display: flex;
+  width: 48%;
+  height: 8.6vh;
+  margin-right: 5%;
+}
+
+.searchForm:focus {
+  outline: none;
+}
+
+.searchForm input {
+  padding-left: 16%;
+}
+
+.searchForm input {
+  outline: none;
+}
+
+.iconSearch {
+  position: absolute;
+  width: 8.8%;
+  padding: 0.4%;
+  top: 26%;
+  left: 4%;
+  opacity: 0.3;
+}
+
+.iconSearchClose {
+  position: absolute;
+  width: 8%;
+  opacity: 0.3;
+  top: 25%;
+  right: 4%;
+  cursor: pointer;
+}
+
+.iconSearchClose:hover {
+  opacity: 0.56;
+}
