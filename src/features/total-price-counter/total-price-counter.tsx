@@ -13,7 +13,7 @@ export function TotalPriceCounter() {
     state.reduce((acc, cv: any) => acc + cv.price, 0),
   );
 
-  const totalPrice: any = useSelector(selectTotalPrice);
+  const totalPrice: any = `${useSelector(selectTotalPrice)} $`;
 
-  return <span>{totalPrice}</span>;
+  return <span>{parseInt(totalPrice) !== 0 && totalPrice} </span>;
 }
