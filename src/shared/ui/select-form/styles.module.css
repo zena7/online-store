@@ -65,8 +65,16 @@
   margin-right: 5%;
 }
 
+.searchForm:focus {
+  outline: none;
+}
+
 .searchForm input {
   padding-left: 16%;
+}
+
+.searchForm input {
+  outline: none;
 }
 
 .iconSearch {
