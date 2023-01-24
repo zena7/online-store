@@ -33,25 +33,6 @@
   border-radius: 2%;
 }
 
-.imgHover {
-  position: absolute;
-  width: 72%;
-  height: 64%;
-  min-height: 56%;
-  object-fit: cover;
-  margin-bottom: 5%;
-  border-radius: 2%;
-}
-
-.productContainer:hover .imgHover {
-  display: none;
-  transition: 0.8s;
-}
-
-/* .imgHover:hover {
-  display: none;
-} */
-
 .description {
   text-align: center;
 }
