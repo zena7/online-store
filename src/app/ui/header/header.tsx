@@ -13,12 +13,12 @@ export function Header() {
         <Link to={CONFIG.HOME.LINK} className={styles.linkStoreLogo}>
           <img src={storeLogo} className={styles.storeLogo} alt="logoShop" />
         </Link>
-        <div className={styles.wrapper}>
-          <div className={styles.counter}>
-            <p>Total amount: {<TotalAmountCounter />}</p>
-            <p>Total price: {<TotalPriceCounter />} $</p>
-          </div>
+        <div className={styles.basketInfo}>
+          <p>
+            <TotalPriceCounter />{' '}
+          </p>
           <Link to={CONFIG.BASKET.LINK} className={styles.linkBasket}>
+            <TotalAmountCounter className={styles.amount} />
             <svg
               className={styles.iconBasket}
               fill="none"
