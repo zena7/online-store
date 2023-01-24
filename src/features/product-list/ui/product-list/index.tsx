@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { List } from '@/shared/ui/list';
 import { Product } from '@/entities/product/types';
 import { ProductCard } from '@/features/product-list/ui/product-card';
-import { useFetchProductsQuery } from '@/features/product-list/service';
+import {
+  useFetchProductsQuery,
+  useFetchSingleProductQuery,
+} from '@/features/product-list/service';
 import { basketSlice } from '@/features/basket/store';
 import { RootState } from '@/store/configure-store';
 import { MainContext } from '@/pages/home/ui/main';
@@ -25,16 +28,11 @@ export function ProductList({
   amountOfProductsInRow,
   page,
 }: ProductListProps) {
+  const { data: { products = [] } = {}, isLoading } = useFetchProductsQuery({});
   const { total } = useContext(MainContext);
   const navigate = useNavigate();
   const isMounted = useRef(false);
   const dispatch = useDispatch();
-  const { data: { products = [] } = {}, isLoading } = useFetchProductsQuery({});
-  const sort = useSelector((state: RootState) => state.sorting.sort);
-  const searchingValue = useSelector(
-    (state: RootState) => state.sorting.search,
-  );
-  const { setTotal } = useContext(MainContext);
 
   const handleAddClick = (product: Product) => () => {
     dispatch(basketSlice.actions.addProduct(product));
@@ -42,6 +40,47 @@ export function ProductList({
 
   const handleDropClick = (id: number) => () => {
     dispatch(basketSlice.actions.dropProduct(id));
+  };
+
+  const sort = useSelector((state: RootState) => state.sorting.sort);
+  const sortProductlist = (products: Product[]): Product[] => {
+    const [value, operator]: string[] = sort.sortProperty.split(' ');
+    const sortingProducts = [...products].sort((a, b) =>
+      a[value as keyof Product] < b[value as keyof Product]
+        ? -1
+        : a[value as keyof Product] > b[value as keyof Product]
+        ? 1
+        : 0,
+    );
+    const result =
+      operator === 'increase'
+        ? sortingProducts
+        : [...sortingProducts].reverse();
+
+    return result;
+  };
+
+  const searchingValue = useSelector(
+    (state: RootState) => state.sorting.search,
+  );
+  const { setTotal } = useContext(MainContext);
+  const searchProducts = (): Product[] => {
+    const result = [...products].filter((item) => {
+      if (isFinite(searchingValue)) {
+        const { price, stock } = item;
+        return (
+          price === Number(searchingValue) || stock === Number(searchingValue)
+        );
+      }
+      const { title, description, brand, category } = item;
+      const items = [title, description, brand, category];
+
+      return items.some((item) =>
+        item.toLowerCase().includes(searchingValue.toLowerCase()),
+      );
+    });
+    setTotal(result.length);
+    return result;
   };
 
   useEffect(() => {
@@ -75,43 +114,6 @@ export function ProductList({
     }
   };
 
-  const sortProductlist = (products: Product[]): Product[] => {
-    const [value, operator]: string[] = sort.sortProperty.split(' ');
-    const sortingProducts = [...products].sort((a, b) =>
-      a[value as keyof Product] < b[value as keyof Product]
-        ? -1
-        : a[value as keyof Product] > b[value as keyof Product]
-        ? 1
-        : 0,
-    );
-
-    const result =
-      operator === 'increase'
-        ? sortingProducts
-        : [...sortingProducts].reverse();
-
-    return result;
-  };
-
-  const searchProducts = (): Product[] => {
-    const result = [...products].filter((item) => {
-      if (isFinite(searchingValue)) {
-        const { price, stock } = item;
-        return (
-          price === Number(searchingValue) || stock === Number(searchingValue)
-        );
-      }
-      const { title, description, brand, category } = item;
-      const items = [title, description, brand, category];
-
-      return items.some((item) =>
-        item.toLowerCase().includes(searchingValue.toLowerCase()),
-      );
-    });
-    setTotal(result.length);
-    return result;
-  };
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -142,6 +144,7 @@ export function ProductList({
               title={product.title}
               brand={product.brand}
               price={product.price}
+              // onClick={handleProductClick(product.id)}
               onAddClick={handleAddClick(product)}
               onDropClick={handleDropClick(product.id)}
             />
