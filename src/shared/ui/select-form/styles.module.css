@@ -31,10 +31,9 @@
 }
 
 .icon {
-  width: 4.5%;
-  padding: 0.4%;
-  padding-bottom: 0.2%;
-  margin-left: 2%;
+  width: 4.8%;
+  padding: 0.8%;
+  padding-bottom: 0.5%;
   border-radius: 5%;
   border: none;
   background-color: white;
@@ -42,10 +41,11 @@
 
 .icon img {
   width: 100%;
+  opacity: 0.75;
 }
 
 .icon:hover {
-  background-color: #f2f2f2;
+  background-color: #dfdcdc;
 }
 
 .icon:focus {
@@ -53,48 +53,5 @@
 }
 
 .iconSix {
-  width: 4.5%;
-  padding: 0.7%;
-  margin-left: 0.1%;
-}
-
-.searchForm {
-  display: flex;
-  width: 48%;
-  height: 8.6vh;
-  margin-right: 5%;
-}
-
-.searchForm:focus {
-  outline: none;
-}
-
-.searchForm input {
-  padding-left: 16%;
-}
-
-.searchForm input {
-  outline: none;
-}
-
-.iconSearch {
-  position: absolute;
-  width: 8.8%;
-  padding: 0.4%;
-  top: 26%;
-  left: 4%;
-  opacity: 0.3;
-}
-
-.iconSearchClose {
-  position: absolute;
-  width: 8%;
-  opacity: 0.3;
-  top: 25%;
-  right: 4%;
-  cursor: pointer;
-}
-
-.iconSearchClose:hover {
-  opacity: 0.56;
+  margin-left: 0.3%;
 }
