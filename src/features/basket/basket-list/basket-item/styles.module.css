@@ -1,0 +1,74 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.index {
+  font-size: 0.7rem;
+}
+
+.image {
+  height: 150px;
+  width: 150px;
+  border-radius: 5%;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: black;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 50%;
+}
+
+.rating {
+  font-size: 0.7rem;
+}
+
+.description {
+  font-size: 1rem;
+}
+
+.stock {
+  font-size: 0.7rem;
+}
+
+.discount {
+  font-size: 0.7rem;
+}
+
+.button {
+  background-color: rgb(33, 7, 228);
+  color: white;
+  font-weight: bold;
+  vertical-align: middle;
+  padding: 7px;
+  border-radius: 30px;
+  text-align: center;
+  border: none;
+}
+
+.button:hover {
+  background-color: rgb(25, 6, 171);
+}
+
+.button:active {
+  background-color: rgb(5, 0, 37);
+}
+
+.amount {
+  font-size: 0.8rem;
+}
+
+.stockPriceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}

@@ -19,14 +19,17 @@ export const basketSlice = createSlice({
     increaseAmount: (state, action: PayloadAction<number>) => {
       state[action.payload] = {
         ...state[action.payload],
-        amount: state[action.payload].amount++,
+        amount: state[action.payload].amount + 1,
       };
     },
     decreaseAmount: (state, action: PayloadAction<number>) => {
-      state[action.payload] = {
-        ...state[action.payload],
-        amount: state[action.payload].amount--,
-      };
+      const amount = state[action.payload].amount;
+      amount === 1
+        ? delete state[action.payload]
+        : (state[action.payload] = {
+            ...state[action.payload],
+            amount: state[action.payload].amount - 1,
+          });
     },
     reset: (state) => {
       state = initialState;
