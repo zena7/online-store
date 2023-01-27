@@ -1,8 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, useParams } from 'react-router-dom';
 import Layout from './ui/layout';
-import ErrorPage from '../pages/error/error';
-import BasketPage from '../pages/basket';
-import HomePage from '../pages/home';
+import ErrorPage from '@/pages/error/error';
+import BasketPage from '@/pages/basket';
+import HomePage from '@/pages/home';
+import ProductPage from '@/pages/product/product';
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: '/basket',
         element: <BasketPage />,
+      },
+      {
+        path: `/product/:id`,
+        element: <ProductPage />,
       },
     ],
   },
