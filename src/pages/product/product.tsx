@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Product } from '@/entities/product/types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store/configure-store';
+// import { RootState } from '@/store/configure-store';
 import { basketSlice } from '@/features/basket/store';
 import { Button } from '@/shared/ui/button';
 import { useFetchSingleProductQuery } from '@/features/product-list/service';
