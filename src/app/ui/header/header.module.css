@@ -4,6 +4,8 @@
   align-items: center;
   padding-top: 1rem;
   font-size: 1.5rem;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 
 .linkStoreLogo {
@@ -26,8 +28,11 @@
 }
 
 .basketInfo span {
-  font-size: 1.4rem;
   color: black;
+}
+
+.totalPrise {
+  font-size: 1.4rem;
 }
 
 .linkBasket {
@@ -56,9 +61,10 @@
 
 .amount {
   position: absolute;
-  top: 38%;
+  top: 35%;
   background-color: #d75656;
   border-radius: 100%;
-  right: 0;
+  right: 0.2%;
   z-index: 2;
+  font-size: 1.1rem;
 }

@@ -16,7 +16,7 @@ export function Header() {
         </Link>
         <div className={styles.basketInfo}>
           <p>
-            <TotalPriceCounter />{' '}
+            <TotalPriceCounter className={styles.totalPrise} />{' '}
           </p>
           <Link to={CONFIG.BASKET.LINK} className={styles.linkBasket}>
             <TotalAmountCounter className={styles.amount} />
