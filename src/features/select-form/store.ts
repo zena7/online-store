@@ -8,7 +8,7 @@ type InitialStateProps = {
   page: number;
 };
 
-const LIMIT = 8;
+const LIMIT = 48;
 const initialState: InitialStateProps = {
   limit: LIMIT,
   sort: {
