@@ -2,7 +2,11 @@ import { RootState } from '@/store/configure-store';
 import { createSelector } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 
-export function TotalPriceCounter() {
+type CounterProps = {
+  className?: string;
+};
+
+export function TotalPriceCounter({ className }: CounterProps) {
   const basket = (state: RootState) => state.basket;
 
   const basketProducts = createSelector(basket, (state) =>
@@ -15,5 +19,9 @@ export function TotalPriceCounter() {
 
   const totalPrice: any = `${useSelector(selectTotalPrice)} $`;
 
-  return <span>{parseInt(totalPrice) !== 0 && totalPrice} </span>;
+  return (
+    <span className={className}>
+      {parseInt(totalPrice) !== 0 && totalPrice}{' '}
+    </span>
+  );
 }
