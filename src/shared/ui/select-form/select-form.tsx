@@ -3,6 +3,8 @@ import { setLimit, setSort } from '@/features/select-form/store';
 import { RootState } from '@/store/configure-store';
 import { Button } from '../button';
 import { Search } from './search/search';
+import { MainContext } from '@/pages/home/ui/main';
+import { useContext } from 'react';
 import icon4to4 from '@/assets/img/block.png';
 import icon6to6 from '@/assets/img/bigBlock.png';
 import styles from './styles.module.css';
@@ -16,6 +18,7 @@ type PropsSortingForm = {
 
 export function SortingForm({ handleAmountOfProductsInRow }: PropsSortingForm) {
   const dispatch = useDispatch();
+  const { total } = useContext(MainContext);
 
   const handleSort = (event: React.ChangeEvent) => {
     const target = event.target as typeof event.target & { value: string };
@@ -36,27 +39,13 @@ export function SortingForm({ handleAmountOfProductsInRow }: PropsSortingForm) {
   };
 
   return (
-    // <div className={styles.containerViewOptions}>
     <div className={styles.containerSort}>
+      <p className={styles.total}>{`Found: ${total}`}</p>
       <Search />
-      <form name="showNumbersOfProducts" className={styles.formSelect}>
-        <label>
-          <select
-            name="sortingProducts"
-            id="sort-select"
-            value={limit}
-            className={styles.selectForm}
-            onChange={handleSetLimitProducts}
-          >
-            <option value="8"> Show 8 </option>
-            <option value="48"> Show 48 </option>
-            <option value="64">Show 64</option>
-            <option value="80">Show 80</option>
-            <option value="100">Show 100</option>
-          </select>
-        </label>
-      </form>
-      <form name="sortingProducts" className={styles.formSelect}>
+      <form
+        name="sortingProducts"
+        className={`${styles.formSelect} ${styles.formSortingProducts}`}
+      >
         <label>
           <select
             name="sortingProducts"
@@ -80,13 +69,33 @@ export function SortingForm({ handleAmountOfProductsInRow }: PropsSortingForm) {
           </select>
         </label>
       </form>
-      <Button className={styles.icon}>
-        <img src={icon4to4} alt="icon4to4" onClick={handlerClickIconFour} />
-      </Button>
-      <Button className={`${styles.icon} ${styles.iconSix}`}>
-        <img src={icon6to6} alt="icon6to6" onClick={handlerClickIconSix} />
-      </Button>
+      <div className={styles.viewProducts}>
+        <form
+          name="showNumbersOfProducts"
+          className={`${styles.formSelect} ${styles.formShowNumb}`}
+        >
+          <label>
+            <select
+              name="sortingProducts"
+              id="sort-select"
+              value={limit}
+              className={styles.selectForm}
+              onChange={handleSetLimitProducts}
+            >
+              <option value="48"> Show 48 </option>
+              <option value="64">Show 64</option>
+              <option value="80">Show 80</option>
+              <option value="100">Show 100</option>
+            </select>
+          </label>
+        </form>
+        <Button className={styles.icon}>
+          <img src={icon4to4} alt="icon4to4" onClick={handlerClickIconFour} />
+        </Button>
+        <Button className={`${styles.icon} ${styles.iconSix}`}>
+          <img src={icon6to6} alt="icon6to6" onClick={handlerClickIconSix} />
+        </Button>
+      </div>
     </div>
-    // </div>
   );
 }
