@@ -29,7 +29,7 @@ export const Search = () => {
     >
       <svg
         className={styles.iconSearch}
-        enable-background="new 0 0 32 32"
+        enableBackground="new 0 0 32 32"
         version="1.1"
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ export const Search = () => {
         value={searchingValue}
         type="text"
         placeholder="Search"
-        className={styles.selectForm}
+        className={styles.searchInput}
         onChange={handleSearch}
         ref={searchInput}
       />
