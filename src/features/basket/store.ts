@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '@/entities/product/types';
 
-const initialState: Record<string, Product & { amount: number }> = {};
+const initialState: Record<
+  string,
+  Product & { amount: number; added?: boolean }
+> = {};
 
 export const basketSlice = createSlice({
   name: 'basket',
@@ -11,6 +14,7 @@ export const basketSlice = createSlice({
       state[action.payload.id] = {
         ...action.payload,
         amount: 1,
+        added: true,
       };
     },
     dropProduct: (state, action: PayloadAction<number>) => {
