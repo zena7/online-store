@@ -1,14 +1,11 @@
 import qs from 'qs';
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { List } from '@/shared/ui/list';
 import { Product } from '@/entities/product/types';
 import { ProductCard } from '@/features/product-list/ui/product-card';
-import {
-  useFetchProductsQuery,
-  useFetchSingleProductQuery,
-} from '@/features/product-list/service';
+import { useFetchProductsQuery } from '@/features/product-list/service';
 import { basketSlice } from '@/features/basket/store';
 import { RootState } from '@/store/configure-store';
 import { MainContext } from '@/pages/home/ui/main';
@@ -31,7 +28,7 @@ export function ProductList({
   const { data: { products = [] } = {}, isLoading } = useFetchProductsQuery({});
   const { total } = useContext(MainContext);
   const navigate = useNavigate();
-  const isMounted = useRef(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const handleAddClick = (product: Product) => () => {
@@ -84,7 +81,7 @@ export function ProductList({
   };
 
   useEffect(() => {
-    if (isMounted.current) {
+    if (isMounted) {
       const queryString = qs.stringify(
         {
           sortBy: sort.sortProperty,
@@ -96,7 +93,7 @@ export function ProductList({
       navigate(queryString);
     }
 
-    isMounted.current = true;
+    setIsMounted(true);
   }, [sort, searchingValue, page]);
 
   useEffect(() => {
@@ -123,34 +120,39 @@ export function ProductList({
   }
 
   setTotal(100);
+  const listClasses = `${styles.list} ${
+    amountOfProductsInRow ? styles.listIconSixActive : ''
+  }`;
+  const notFound = 'No results';
+  const productArrayOptions = searchingValue ? searchProducts() : products;
 
   return (
     <>
-      <List
-        className={`${styles.list} ${
-          amountOfProductsInRow ? styles.listIconSixActive : ''
-        }`}
-      >
-        {setLimit(
-          sort.property !== ''
-            ? sortProductlist(searchingValue ? searchProducts() : products)
-            : searchingValue
-            ? searchProducts()
-            : products,
-        )?.map((product) => (
-          <li className={styles.item} key={product.id}>
-            <ProductCard
-              images={product.images}
-              title={product.title}
-              brand={product.brand}
-              price={product.price}
-              // onClick={handleProductClick(product.id)}
-              onAddClick={handleAddClick(product)}
-              onDropClick={handleDropClick(product.id)}
-            />
-          </li>
-        ))}
-      </List>
+      {total ? (
+        <List className={listClasses}>
+          {setLimit(
+            sort.property !== ''
+              ? sortProductlist(productArrayOptions)
+              : productArrayOptions,
+          )?.map((product) => (
+            <li className={styles.item} key={product.id}>
+              <ProductCard
+                images={product.images}
+                title={product.title}
+                brand={product.brand}
+                price={product.price}
+                rating={product.rating}
+                // id={product.id}
+                onClick={() => navigate(`/product/${product.id}`)}
+                onAddClick={handleAddClick(product)}
+                onDropClick={handleDropClick(product.id)}
+              />
+            </li>
+          ))}
+        </List>
+      ) : (
+        <h2 className={styles.no}>{notFound}</h2>
+      )}
     </>
   );
 }
