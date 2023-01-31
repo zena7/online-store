@@ -1,12 +1,14 @@
 import { Button } from '@/shared/ui/button';
 import { Product } from '@/entities/product/types';
-import styles from './styles.module.css';
 import { useState } from 'react';
+import { IconRaiting } from '@/features/product-list/ui/product-card/assets/iconRaiting';
+import styles from './styles.module.css';
 
 type ProductCardProps = Pick<
   Product,
-  'images' | 'title' | 'brand' | 'price'
+  'images' | 'title' | 'brand' | 'price' | 'rating'
 > & {
+  onClick: () => void;
   onAddClick: () => void;
   onDropClick: () => void;
 };
@@ -16,6 +18,8 @@ export function ProductCard({
   title,
   brand,
   price,
+  rating,
+  onClick,
   onAddClick,
   onDropClick,
 }: ProductCardProps) {
@@ -24,12 +28,20 @@ export function ProductCard({
 
   return (
     <div className={styles.productContainer}>
-      <div className={styles.card}>
-        <img src={images[0]} alt={title} className={styles.img} />
-        <div className={styles.description}>
-          <p className={styles.title}>{computedTitle}</p>
-          <p>{brand}</p>
-          <p className={styles.price}>{price} $</p>
+      <div className={styles.info} onClick={onClick}>
+        <div className={styles.raiting}>
+          <p>
+            <IconRaiting className={styles.raitingIcon} />
+            {rating}
+          </p>
+        </div>
+        <div className={styles.card}>
+          <img src={images[0]} alt={title} className={styles.img} />
+          <div className={styles.description}>
+            <p className={styles.title}>{computedTitle}</p>
+            <p>{brand}</p>
+            <p className={styles.price}>{price} $</p>
+          </div>
         </div>
       </div>
       <div className={styles.containerBtns}>

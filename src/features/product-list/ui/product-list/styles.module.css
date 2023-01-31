@@ -4,6 +4,15 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.listIconSixActive {
+  grid-template-columns: repeat(6, 1fr);
+}
+
 .item {
   padding: 1% 4%;
+}
+
+.no {
+  margin: 15% 40%;
+  width: 100%;
 }

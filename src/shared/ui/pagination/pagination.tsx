@@ -1,7 +1,10 @@
-import { Button } from '@/shared/ui/button';
 import clsx from 'clsx';
+import { useContext } from 'react';
+import { Button } from '@/shared/ui/button';
+import { MainContext } from '@/pages/home/ui/main';
 import styles from './styles.module.css';
-import { Product } from '@/entities/product/types';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/configure-store';
 
 export interface PaginationProps {
   handleClickPrev?: () => void;
@@ -9,7 +12,6 @@ export interface PaginationProps {
   className: string;
   limit: number;
   skip: number;
-  total: number;
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
@@ -18,11 +20,11 @@ export const Pagination: React.FC<PaginationProps> = ({
   className,
   limit,
   skip,
-  total,
 }) => {
+  const { total } = useContext(MainContext);
   const isFirstPage = skip === 0;
   const isLastPage = limit + skip >= total;
-
+  const pages = useSelector((state: RootState) => state.sorting.pages);
   return (
     <div className={clsx(styles.pagination, className && className)}>
       <Button

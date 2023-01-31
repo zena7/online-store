@@ -1,8 +1,70 @@
 .header {
-  padding-top: 3rem;
-  padding-bottom: 3px;
-  background-color: rgb(140, 28, 238);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
   font-size: 1.5rem;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 
+.linkStoreLogo {
+  width: 26%;
+}
+.storeLogo {
+  width: 100%;
+}
 
+.storeLogo:hover {
+  opacity: 0.8;
+}
+
+.basketInfo {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 20%;
+  padding-top: 1.5%;
+}
+
+.basketInfo span {
+  color: black;
+}
+
+.totalPrice {
+  font-size: 1.4rem;
+}
+
+.linkBasket {
+  padding: 5%;
+  padding-top: 2%;
+  width: 24%;
+}
+
+.linkBasket:visited {
+  color: #000;
+}
+.iconBasket {
+  width: 100%;
+  opacity: 0.8;
+}
+
+.iconBasket:hover {
+  opacity: 1;
+  filter: invert(30%) sepia(59%) saturate(1783%) hue-rotate(331deg)
+    brightness(114%) contrast(69%);
+}
+
+.iconBasket:visited {
+  color: #000;
+}
+
+.amount {
+  position: absolute;
+  top: 35%;
+  background-color: #d75656;
+  border-radius: 100%;
+  right: 0.2%;
+  z-index: 2;
+  font-size: 1.1rem;
+}

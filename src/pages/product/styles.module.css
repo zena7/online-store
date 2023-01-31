@@ -1,0 +1,29 @@
+.productSingle {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin: 3% 10%;
+}
+
+.info {
+}
+.imgs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.img {
+  width: 20%;
+  margin-bottom: 2%;
+}
+
+.mainImg {
+  position: absolute;
+  left: 26%;
+}
+
+.mainImg img {
+  width: 100%;
+}
