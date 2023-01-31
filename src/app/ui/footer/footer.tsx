@@ -6,7 +6,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <Container className={styles.info}>
         <p>
-          MARKETT ENGINEERED BY{' '}
+          MARKET ENGINEERED BY{' '}
           <a href="https://github.com/zena7" target="_blank" rel="noreferrer">
             ZENA7
           </a>{' '}
