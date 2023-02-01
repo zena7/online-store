@@ -142,6 +142,7 @@ export function ProductList({
                 brand={product.brand}
                 price={product.price}
                 rating={product.rating}
+                id={product.id}
                 // id={product.id}
                 onClick={() => navigate(`/product/${product.id}`)}
                 onAddClick={handleAddClick(product)}
