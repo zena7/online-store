@@ -29,6 +29,10 @@ const ProductPage = () => {
     dispatch(basketSlice.actions.dropProduct(id));
   };
 
+  const [zoom, setZoom] = useState(false);
+  const handleToggle = () => {
+    setZoom(!zoom);
+  };
   const limitNumberOfImages = (imgs: string[] | undefined) =>
     imgs?.slice(0, 3) ?? [];
 
@@ -63,7 +67,14 @@ const ProductPage = () => {
             />
           ))}
           <div className={styles.mainImg} onClick={handleToggle}>
-            {data && <img src={src} alt={data?.title} key={id} />}
+            {data && (
+              <img
+                src={src}
+                alt={data?.title}
+                key={id}
+                className={`${zoom && styles.zoom}`}
+              />
+            )}
           </div>
         </div>
         <div className={styles.info}>
