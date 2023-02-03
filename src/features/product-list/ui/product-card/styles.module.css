@@ -50,7 +50,6 @@ p {
 }
 
 .price {
-  /* padding-top: 4%; */
   margin-top: 5%;
   line-height: 2.5;
 }
@@ -76,20 +75,20 @@ p {
   color: white;
 }
 
-.raiting {
+.rating {
   display: none;
   position: absolute;
   left: 72%;
   top: 4%;
 }
 
-.raitingIcon {
+.ratingIcon {
   display: inline-block;
   opacity: 0.3;
   width: 22%;
   margin-right: 4%;
 }
 
-.productContainer:hover .raiting {
+.productContainer:hover .rating {
   display: block;
 }

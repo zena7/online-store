@@ -1,7 +1,7 @@
 import { Button } from '@/shared/ui/button';
 import { Product } from '@/entities/product/types';
 import { useState } from 'react';
-import { IconRaiting } from '@/features/product-list/ui/product-card/assets/iconRaiting';
+import { IconRating } from '@/features/product-list/ui/product-card/assets/iconRaiting';
 import styles from './styles.module.css';
 import { useSelector } from 'react-redux';
 import { getProductById } from '@/shared/selector';
@@ -35,9 +35,9 @@ export function ProductCard({
   return (
     <div className={styles.productContainer}>
       <div className={styles.info} onClick={onClick}>
-        <div className={styles.raiting}>
+        <div className={styles.rating}>
           <p>
-            <IconRaiting className={styles.raitingIcon} />
+            <IconRating className={styles.ratingIcon} />
             {rating}
           </p>
         </div>

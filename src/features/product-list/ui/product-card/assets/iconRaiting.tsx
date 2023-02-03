@@ -2,7 +2,7 @@ type IconProps = {
   className?: string;
 };
 
-export const IconRaiting = ({ className }: IconProps) => {
+export const IconRating = ({ className }: IconProps) => {
   return (
     <svg
       className={className}
