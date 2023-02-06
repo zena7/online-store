@@ -6,8 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { basketSlice } from '@/features/basket/store';
 import { Button } from '@/shared/ui/button';
 import { useFetchSingleProductQuery } from '@/features/product-list/service';
-import styles from './styles.module.css';
 import { getProductById } from '@/shared/selector';
+import { Breadcrumbs } from './breadCrumbs';
+import { PlusIcon } from './assets/plusIcon';
+import { MinusIcon } from './assets/minusIcon';
+import styles from './styles.module.css';
 
 const ProductPage = () => {
   const { id } = useParams<{ id: any }>();
@@ -41,20 +44,18 @@ const ProductPage = () => {
     setSrc(data?.images[0]);
   }, [data]);
 
+  const [descrOpen, setDescrOpen] = useState(false);
+  const handleDescriptionOpen = () => {
+    setDescrOpen((prev) => !prev);
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   return (
     <Container>
-      <ul className={styles.breadcrumb}>
-        <li>Store / </li>
-        <li> {data && convertData(data.category)} / </li>
-        <li> {data && convertData(data.brand)} /</li>
-        <li className={styles.currentItem}>
-          {data && convertData(data.category)}
-        </li>
-      </ul>
+      <Breadcrumbs data={data} convertData={convertData} />
       <div className={styles.productSingle}>
         <div className={styles.imgs}>
           {limitNumberOfImages(data?.images).map((item, index) => (
@@ -79,8 +80,7 @@ const ProductPage = () => {
         </div>
         <div className={styles.info}>
           <h1 className={styles.header}>{data && convertData(data.title)}</h1>
-          <p>{data && convertData(data.brand)}</p>
-          <p>{data?.description}</p>
+          <p className={styles.brand}>{data && convertData(data.brand)}</p>
           <p className={styles.price}>{data?.price} $</p>
           <div className={styles.containerBtn}>
             <Button
@@ -98,6 +98,36 @@ const ProductPage = () => {
             >
               Order checkout
             </Button>
+          </div>
+          <div className={styles.information}>
+            <div className={styles.informationItem}>
+              <span className={styles.title}>In stock</span>
+              <span className={styles.value}>{data?.stock}</span>
+            </div>
+            <div className={styles.informationItem}>
+              <span className={styles.title}>Rating </span>
+              <span className={styles.value}>{data?.rating}</span>
+            </div>
+            <div
+              onClick={handleDescriptionOpen}
+              className={`${styles.informationItem} ${styles.informationDescription}`}
+            >
+              <span className={`${styles.title} ${styles.titleDescription}`}>
+                Description
+              </span>
+              {descrOpen ? (
+                <MinusIcon className={styles.plusIcon} />
+              ) : (
+                <PlusIcon className={styles.plusIcon} />
+              )}
+            </div>
+            <span
+              className={`${styles.value} ${styles.description} ${
+                descrOpen && styles.descrOpen
+              }`}
+            >
+              {data?.description}
+            </span>
           </div>
         </div>
       </div>
