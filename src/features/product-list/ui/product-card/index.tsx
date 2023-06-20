@@ -1,8 +1,10 @@
 import { Button } from '@/shared/ui/button';
 import { Product } from '@/entities/product/types';
 import { useState } from 'react';
-import { IconRaiting } from '@/features/product-list/ui/product-card/assets/iconRaiting';
+import { IconRating } from '@/features/product-list/ui/product-card/assets/iconRaiting';
 import styles from './styles.module.css';
+import { useSelector } from 'react-redux';
+import { getProductById } from '@/shared/selector';
 
 type ProductCardProps = Pick<
   Product,
@@ -11,9 +13,11 @@ type ProductCardProps = Pick<
   onClick: () => void;
   onAddClick: () => void;
   onDropClick: () => void;
+  id: number;
 };
 
 export function ProductCard({
+  id,
   images,
   title,
   brand,
@@ -24,14 +28,16 @@ export function ProductCard({
   onDropClick,
 }: ProductCardProps) {
   const computedTitle = title.length > 20 ? title.slice(0, 20) : title;
-  const [added, setAdded] = useState(false);
+  const [added, setAdded] = useState(
+    useSelector((state) => getProductById(state, id)),
+  );
 
   return (
     <div className={styles.productContainer}>
       <div className={styles.info} onClick={onClick}>
-        <div className={styles.raiting}>
+        <div className={styles.rating}>
           <p>
-            <IconRaiting className={styles.raitingIcon} />
+            <IconRating className={styles.ratingIcon} />
             {rating}
           </p>
         </div>

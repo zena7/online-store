@@ -39,6 +39,10 @@ export function ProductList({
     dispatch(basketSlice.actions.dropProduct(id));
   };
 
+  function convertData(arg: string) {
+    return `${arg[0].toUpperCase()}${arg.slice(1).toLowerCase()}`;
+  }
+
   const sort = useSelector((state: RootState) => state.sorting.sort);
   const sortProductlist = (products: Product[]): Product[] => {
     const [value, operator]: string[] = sort.sortProperty.split(' ');
@@ -138,11 +142,11 @@ export function ProductList({
             <li className={styles.item} key={product.id}>
               <ProductCard
                 images={product.images}
-                title={product.title}
-                brand={product.brand}
+                title={convertData(product.title)}
+                brand={convertData(product.brand)}
                 price={product.price}
                 rating={product.rating}
-                // id={product.id}
+                id={product.id}
                 onClick={() => navigate(`/product/${product.id}`)}
                 onAddClick={handleAddClick(product)}
                 onDropClick={handleDropClick(product.id)}
